@@ -145,6 +145,10 @@ public class TextBuddy{
 			return MESSAGE_NO_KEYWORD_ENTERED;
 		}
 		
+		if (contentStore.isEmpty()) {
+			return String.format(MESSAGE_EMPTY_FILE, fileName);
+		}
+		
 		String contents = "";
 		for (int i = 0; i < contentStore.size(); i++) {
         	String nextLine = i + 1 + ". " + contentStore.get(i) + "\n";
