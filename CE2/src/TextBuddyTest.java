@@ -150,6 +150,10 @@ public class TextBuddyTest {
 				+ "test.txt is now sorted alphabetically as follows:\n" + "1. 1 cat for me\n"
 				+ "2. Really!\n" + "3. Would you like a cat?\n" + "4. cats are awesome\n");
 		
+		// sorting an empty list
+		TextBuddy.executeCommand("clear", tb);
+		assertEquals(TextBuddy.executeCommand("sort", tb),
+				"test.txt is empty\n");
 		
 		System.out.println("Passed all sort cases!");
 	}

@@ -169,6 +169,10 @@ public class TextBuddy{
 	private String sortAlphabetically(String content){
 		String extraInfo = checkRedundantArguments(content, "sort");
 		
+		if (contentStore.size() <= 1) {
+			return extraInfo + displayAllContent("");
+		}
+		
 		Collections.sort(contentStore);
 		saveContent();
 		return extraInfo + String.format(MESSAGE_SORTED, fileName) + displayAllContent("");
