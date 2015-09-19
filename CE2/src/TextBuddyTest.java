@@ -110,12 +110,16 @@ public class TextBuddyTest {
 		assertEquals(TextBuddy.executeCommand("search dog", tb),
 				"\"dog\" not found in test.txt\n");
 		
-		TextBuddy.executeCommand("clear", tb);
-		System.out.println("Passed all search cases!");
-		
-		//empty search string
+		// empty search string
 		assertEquals(TextBuddy.executeCommand("search", tb),
 				"Please specify keyword(s) after \"search\"\n");
+		
+		// empty list; nothing to search
+		TextBuddy.executeCommand("clear", tb);
+		assertEquals(TextBuddy.executeCommand("search cat", tb),
+				"test.txt is empty\n");
+		
+		System.out.println("Passed all search cases!");
 		
 	}
 	
