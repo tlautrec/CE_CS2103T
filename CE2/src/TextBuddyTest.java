@@ -101,7 +101,9 @@ public class TextBuddyTest {
 		TextBuddy.executeCommand("add cats are awesome", tb);
 		TextBuddy.executeCommand("add Would you like a cat?", tb);
 		assertEquals(TextBuddy.executeCommand("search cat", tb), 
-				"1. cats are awesome\n" + "2. Would you like a cat?");
+				"1. cats are awesome\n" + "2. Would you like a cat?\n");
+		
+		System.out.println("Passed all search cases!");
 	}
 	
 }

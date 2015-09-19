@@ -64,7 +64,7 @@ public class TextBuddy{
 
 	// These are the possible command types:
 	enum CommandType {
-		APPEND, DELETE, CLEAR, DISPLAY, INVALID, EXIT
+		APPEND, DELETE, CLEAR, DISPLAY, SEARCH, INVALID, EXIT
 	};
 
 	/* This variable is declared for the whole class
@@ -137,6 +137,10 @@ public class TextBuddy{
        	 }
        	return extraInfo + contents;
     }
+	
+	private String searchForKeyword(String content){
+		return displayAllContent("");
+	}
 	
 	// Function to write ArrayList of contents to text file
 	private void saveContent() {		
@@ -248,6 +252,8 @@ public class TextBuddy{
 				return textList.clearAllContent(commandContent);
 			case DISPLAY:
 				return textList.displayAllContent(commandContent);
+			case SEARCH:
+				return textList.searchForKeyword(commandContent);
 			case INVALID:
 				return String.format(MESSAGE_INVALID_COMMAND, userCommand) + MESSAGE_COMMAND_HINT;
 			case EXIT:
@@ -272,6 +278,8 @@ public class TextBuddy{
 			return CommandType.CLEAR;
 		} else if (commandTypeString.equalsIgnoreCase("display")) {
 			return CommandType.DISPLAY;
+		} else if (commandTypeString.equalsIgnoreCase("search")) { 
+			return CommandType.SEARCH;
 		} else if (commandTypeString.equalsIgnoreCase("exit")) {
 			return CommandType.EXIT;
 		} else {
