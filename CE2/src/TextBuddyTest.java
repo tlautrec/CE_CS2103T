@@ -135,8 +135,8 @@ public class TextBuddyTest {
 		
 		// Successful sorting
 		TextBuddy tb = new TextBuddy("test.txt");
-		TextBuddy.executeCommand("add cats are awesome", tb);
 		TextBuddy.executeCommand("add Really!", tb);
+		TextBuddy.executeCommand("add cats are awesome", tb);
 		TextBuddy.executeCommand("add Would you like a cat?", tb);
 		assertEquals(TextBuddy.executeCommand("sort", tb),
 				"1. cats are awesome\n" + "2. Really!\n" + "3. Would you like a cat?\n");
