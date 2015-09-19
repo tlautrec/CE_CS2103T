@@ -94,4 +94,14 @@ public class TextBuddyTest {
 		System.out.println("Passed all display cases!");
 	}
 	
+	
+	@Test
+	public void testSearch() {
+		TextBuddy tb = new TextBuddy("test.txt");
+		TextBuddy.executeCommand("add cats are awesome", tb);
+		TextBuddy.executeCommand("add Would you like a cat?", tb);
+		assertEquals(TextBuddy.executeCommand("search cat", tb), 
+				"1. cats are awesome\n" + "2. Would you like a cat?");
+	}
+	
 }
