@@ -7,8 +7,10 @@ public class TextBuddyTest {
 	@Test
 	public void testAdd() {
 		
-		// successful add
 		TextBuddy tb = new TextBuddy("test.txt");
+		TextBuddy.executeCommand("clear", tb);
+		
+		// successful add
 		assertEquals(TextBuddy.executeCommand("add cats are good!", tb), 
 				"added to test.txt: \"cats are good!\"\n");
 		TextBuddy.executeCommand("clear", tb);
@@ -23,8 +25,10 @@ public class TextBuddyTest {
 	@Test
 	public void testDelete() {
 		
-		// successful delete
 		TextBuddy tb = new TextBuddy("test.txt");
+		TextBuddy.executeCommand("clear", tb);
+		
+		// successful delete
 		TextBuddy.executeCommand("add cats are really good!", tb);
 		assertEquals(TextBuddy.executeCommand("delete 1", tb),
 				"deleted from test.txt: \"cats are really good!\"\n");
@@ -51,8 +55,10 @@ public class TextBuddyTest {
 	@Test
 	public void testClear() {
 		
-		// successful clear
 		TextBuddy tb = new TextBuddy("test.txt");
+		TextBuddy.executeCommand("clear", tb);
+		
+		// successful clear
 		TextBuddy.executeCommand("add to be cleared", tb);
 		assertEquals(TextBuddy.executeCommand("clear", tb),
 				"all content deleted from test.txt\n");
@@ -73,8 +79,10 @@ public class TextBuddyTest {
 	@Test
 	public void testDisplay() {
 		
-		// successful display
 		TextBuddy tb = new TextBuddy("test.txt");
+		TextBuddy.executeCommand("clear", tb);
+		
+		// successful display
 		TextBuddy.executeCommand("add cats go meow", tb);
 		TextBuddy.executeCommand("add cats rule the world", tb);
 		assertEquals(TextBuddy.executeCommand("display", tb),
@@ -98,9 +106,10 @@ public class TextBuddyTest {
 	@Test
 	public void testSearch() {
 		
-		// successful search
 		TextBuddy tb = new TextBuddy("test.txt");
 		TextBuddy.executeCommand("add cats are awesome", tb);
+		
+		// successful search
 		TextBuddy.executeCommand("add Really!", tb);
 		TextBuddy.executeCommand("add Would you like a cat?", tb);
 		assertEquals(TextBuddy.executeCommand("search cat", tb), 
@@ -120,7 +129,6 @@ public class TextBuddyTest {
 				"test.txt is empty\n");
 		
 		System.out.println("Passed all search cases!");
-		
 	}
 	
 }
