@@ -166,30 +166,40 @@ public class TextBuddy{
 	
 	// Function to write ArrayList of contents to text file
 	private void saveContent() {		
+		Writer writer = null;		
 		try{
 			FileOutputStream input = new FileOutputStream(fileName);
         	OutputStreamWriter outputStreamWriter = new OutputStreamWriter(input);    
-        	Writer writer = new BufferedWriter(outputStreamWriter);
+        	writer = new BufferedWriter(outputStreamWriter);
         	for(int i = 0; i < contentStore.size(); i++) {
         		writer.write(contentStore.get(i) + "\n");
         	}
-        	writer.close();
         } catch (IOException e) {
             showExceptionMessage(String.format(EXC_PROBLEM_WRITING_FILE, fileName));
-        }					
+        } finally {
+        	try {
+        		writer.close();
+        	} catch (IOException e) {
+        		showExceptionMessage(String.format(EXC_PROBLEM_WRITING_FILE, fileName));
+        	}
+        }
 	}
 		
 	// Function to write contents of (existent) text file to ArrayList
 	private void copyContentsFromFile() {
+		Scanner sc = null;
 		try{
 			File textFile = new File(fileName);
-			Scanner sc = new Scanner(textFile);
+			sc = new Scanner(textFile);
 			while(sc.hasNextLine()){
 				contentStore.add(sc.nextLine());
 			}
-			sc.close();
 		} catch (IOException e) {
             showExceptionMessage(String.format(EXC_FILE_NOT_FOUND, fileName));
+        } finally {
+        	if (sc != null) {
+        		sc.close();
+        	}
         }
 	}
 
