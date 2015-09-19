@@ -10,18 +10,18 @@ import java.util.Scanner;
 
 
 /**
- * This class is used to edit (add, delete, clear) or retreive (display)
- * the contents of a text file. A text file can be created, if it does not
- * already exist. Contents can be added to or deleted from the text file 
+ * This class is used to edit (add, delete, clear, sort) or retrieve (search, 
+ * display the contents of a text file. A text file can be created, if it does
+ * not already exist. Contents can be added to or deleted from the text file 
  * one line at a time. The text file will be refreshed and saved after every
  * successful command that modifies the text file (add, delete or clear).
  * The class will not auto save the textfile on exit.
  	
  	Assumptions made:
- 	1. The class assumes that a valid filename is entered as a command line
+ 	1. The class assumes that a valid filename (.txt) is entered as a command line
  	argument when the class is run on the terminal or command prompt.
  	2. The class will not create a new file if user exits without entering
-	a command that modifies (add, delete, clear) a newly createdfile.
+	a command that modifies (add, delete, clear) a newly created file.
 	3. Blank spaces or enters entered after the add command will not be added
 	to the text file. Such input are treated as trivial and will not be processed.
 	4. No autoformatting of the input to be add is done, spaces left by the user 
