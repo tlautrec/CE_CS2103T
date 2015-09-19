@@ -97,6 +97,8 @@ public class TextBuddyTest {
 	
 	@Test
 	public void testSearch() {
+		
+		// successful search
 		TextBuddy tb = new TextBuddy("test.txt");
 		TextBuddy.executeCommand("add cats are awesome", tb);
 		TextBuddy.executeCommand("add Really!", tb);
@@ -104,6 +106,11 @@ public class TextBuddyTest {
 		assertEquals(TextBuddy.executeCommand("search cat", tb), 
 				"1. cats are awesome\n" + "3. Would you like a cat?\n");
 		
+		// unsuccessful search
+		assertEquals(TextBuddy.executeCommand("search dog", tb),
+				"\"dog\" not found in test.txt");
+		
+		TextBuddy.executeCommand("clear", tb);
 		System.out.println("Passed all search cases!");
 	}
 	
