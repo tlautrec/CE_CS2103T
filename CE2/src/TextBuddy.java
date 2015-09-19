@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 
@@ -62,6 +63,7 @@ public class TextBuddy{
 	private static final String MESSAGE_EXTRA_INFO = "There is no need for \"%1$s\" after the command \"%2$s\"\nIt will be performed anyway\n";
 	private static final String MESSAGE_KEYWORD_NOT_FOUND = "\"%1$s\" not found in %2$s\n";
 	private static final String MESSAGE_NO_KEYWORD_ENTERED = "Please specify keyword(s) after \"search\"\n";
+	private static final String MESSAGE_SORTED = "%1$s is now sorted alphabetically as follows:\n";
 
 
 	// These are the possible command types:
@@ -165,7 +167,9 @@ public class TextBuddy{
 	}
 	
 	private String sortAlphabetically(String content){
-		return displayAllContent("");
+		Collections.sort(contentStore);
+		saveContent();
+		return String.format(MESSAGE_SORTED, fileName)+ displayAllContent("");
 	}
 	
 	// Function to write ArrayList of contents to text file

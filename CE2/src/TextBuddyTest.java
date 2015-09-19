@@ -139,7 +139,8 @@ public class TextBuddyTest {
 		TextBuddy.executeCommand("add cats are awesome", tb);
 		TextBuddy.executeCommand("add Would you like a cat?", tb);
 		assertEquals(TextBuddy.executeCommand("sort", tb),
-				"1. Really!\n" + "2. Would you like a cat?\n" + "3. cats are awesome\n");
+				"test.txt is now sorted alphabetically as follows:\n"
+				 + "1. Really!\n" + "2. Would you like a cat?\n" + "3. cats are awesome\n");
 		
 		TextBuddy.executeCommand("clear", tb);
 		System.out.println("Passed all sort cases!");
