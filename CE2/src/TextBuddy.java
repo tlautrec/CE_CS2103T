@@ -140,6 +140,7 @@ public class TextBuddy{
        	return extraInfo + contents;
     }
 	
+	// Function to search for lines containing a keyword in file
 	private String searchForKeyword(String content){
 		if (content.isEmpty()) {
 			return MESSAGE_NO_KEYWORD_ENTERED;
