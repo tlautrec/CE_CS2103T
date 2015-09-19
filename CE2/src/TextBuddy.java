@@ -61,6 +61,7 @@ public class TextBuddy{
 	private static final String MESSAGE_EMPTY_FILE = "%1$s is empty\n";
 	private static final String MESSAGE_EXTRA_INFO = "There is no need for \"%1$s\" after the command \"%2$s\"\nIt will be performed anyway\n";
 	private static final String MESSAGE_KEYWORD_NOT_FOUND = "\"%1$s\" not found in %2$s\n";
+	private static final String MESSAGE_NO_KEYWORD_ENTERED = "Please specify keyword(s) after \"search\"\n";
 
 
 	// These are the possible command types:
@@ -140,6 +141,10 @@ public class TextBuddy{
     }
 	
 	private String searchForKeyword(String content){
+		if (content.isEmpty()) {
+			return MESSAGE_NO_KEYWORD_ENTERED;
+		}
+		
 		String contents = "";
 		for (int i = 0; i < contentStore.size(); i++) {
         	String nextLine = i + 1 + ". " + contentStore.get(i) + "\n";
