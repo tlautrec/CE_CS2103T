@@ -108,7 +108,7 @@ public class TextBuddyTest {
 		
 		// unsuccessful search
 		assertEquals(TextBuddy.executeCommand("search dog", tb),
-				"\"dog\" not found in test.txt");
+				"\"dog\" not found in test.txt\n");
 		
 		TextBuddy.executeCommand("clear", tb);
 		System.out.println("Passed all search cases!");

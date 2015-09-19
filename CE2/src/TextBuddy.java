@@ -60,6 +60,7 @@ public class TextBuddy{
 	private static final String MESSAGE_ALL_CLEARED = "all content deleted from %1$s\n";
 	private static final String MESSAGE_EMPTY_FILE = "%1$s is empty\n";
 	private static final String MESSAGE_EXTRA_INFO = "There is no need for \"%1$s\" after the command \"%2$s\"\nIt will be performed anyway\n";
+	private static final String MESSAGE_KEYWORD_NOT_FOUND = "\"%1$s\" not found in %2$s\n";
 
 
 	// These are the possible command types:
@@ -146,6 +147,10 @@ public class TextBuddy{
         		contents += nextLine;
         	}
        	 }
+		
+		if (contents.isEmpty()) {
+			return String.format(MESSAGE_KEYWORD_NOT_FOUND, content, fileName);
+		}
        	return contents;
 	}
 	
