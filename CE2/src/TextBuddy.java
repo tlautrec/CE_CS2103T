@@ -167,9 +167,11 @@ public class TextBuddy{
 	}
 	
 	private String sortAlphabetically(String content){
+		String extraInfo = checkRedundantArguments(content, "sort");
+		
 		Collections.sort(contentStore);
 		saveContent();
-		return String.format(MESSAGE_SORTED, fileName)+ displayAllContent("");
+		return extraInfo + String.format(MESSAGE_SORTED, fileName) + displayAllContent("");
 	}
 	
 	// Function to write ArrayList of contents to text file
