@@ -112,6 +112,11 @@ public class TextBuddyTest {
 		
 		TextBuddy.executeCommand("clear", tb);
 		System.out.println("Passed all search cases!");
+		
+		//empty search string
+		assertEquals(TextBuddy.executeCommand("search", tb),
+				"Please specify keyword(s) after \"search\"\n");
+		
 	}
 	
 }
