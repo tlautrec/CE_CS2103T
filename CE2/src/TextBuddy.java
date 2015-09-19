@@ -50,7 +50,7 @@ public class TextBuddy{
 	private static final String MESSAGE_ENTER_COMMAND = "Enter command: ";
 	private static final String MESSAGE_EMPTY_COMMAND = "No command has been entered\n";
 	private static final String MESSAGE_INVALID_COMMAND = "\"%1$s\" is not a valid command\n";
-	private static final String MESSAGE_COMMAND_HINT = "Valid commands are: add, delete, clear, display, search and exit\n";
+	private static final String MESSAGE_COMMAND_HINT = "Valid commands are: add, delete, clear, display, search, sort and exit\n";
 	
 	private static final String MESSAGE_ADDED = "added to %1$s: %2$s\n";
 	private static final String MESSAGE_DELETED = "deleted from %1$s: \"%2$s\"\n";
@@ -66,7 +66,7 @@ public class TextBuddy{
 
 	// These are the possible command types:
 	enum CommandType {
-		APPEND, DELETE, CLEAR, DISPLAY, SEARCH, INVALID, EXIT
+		APPEND, DELETE, CLEAR, DISPLAY, SEARCH, SORT, INVALID, EXIT
 	};
 
 	/* This variable is declared for the whole class
@@ -162,6 +162,10 @@ public class TextBuddy{
 			return String.format(MESSAGE_KEYWORD_NOT_FOUND, content, fileName);
 		}
        	return contents;
+	}
+	
+	private String sortAlphabetically(String content){
+		return displayAllContent("");
 	}
 	
 	// Function to write ArrayList of contents to text file
@@ -286,6 +290,8 @@ public class TextBuddy{
 				return textList.displayAllContent(commandContent);
 			case SEARCH:
 				return textList.searchForKeyword(commandContent);
+			case SORT:
+				return textList.sortAlphabetically(commandContent);
 			case INVALID:
 				return String.format(MESSAGE_INVALID_COMMAND, userCommand) + MESSAGE_COMMAND_HINT;
 			case EXIT:
@@ -312,6 +318,8 @@ public class TextBuddy{
 			return CommandType.DISPLAY;
 		} else if (commandTypeString.equalsIgnoreCase("search")) { 
 			return CommandType.SEARCH;
+		} else if (commandTypeString.equalsIgnoreCase("sort")) { 
+			return CommandType.SORT;
 		} else if (commandTypeString.equalsIgnoreCase("exit")) {
 			return CommandType.EXIT;
 		} else {
