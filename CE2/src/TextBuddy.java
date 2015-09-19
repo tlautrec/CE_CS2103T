@@ -50,7 +50,7 @@ public class TextBuddy{
 	private static final String MESSAGE_ENTER_COMMAND = "Enter command: ";
 	private static final String MESSAGE_EMPTY_COMMAND = "No command has been entered\n";
 	private static final String MESSAGE_INVALID_COMMAND = "\"%1$s\" is not a valid command\n";
-	private static final String MESSAGE_COMMAND_HINT = "Valid commands are: add, delete, clear, display and exit\n";
+	private static final String MESSAGE_COMMAND_HINT = "Valid commands are: add, delete, clear, display, search and exit\n";
 	
 	private static final String MESSAGE_ADDED = "added to %1$s: %2$s\n";
 	private static final String MESSAGE_DELETED = "deleted from %1$s: \"%2$s\"\n";
