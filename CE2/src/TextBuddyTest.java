@@ -140,9 +140,17 @@ public class TextBuddyTest {
 		TextBuddy.executeCommand("add Would you like a cat?", tb);
 		assertEquals(TextBuddy.executeCommand("sort", tb),
 				"test.txt is now sorted alphabetically as follows:\n"
-				 + "1. Really!\n" + "2. Would you like a cat?\n" + "3. cats are awesome\n");
+				+ "1. Really!\n" + "2. Would you like a cat?\n" + "3. cats are awesome\n");
 		
-		TextBuddy.executeCommand("clear", tb);
+		// sorting with too many arguments
+		TextBuddy.executeCommand("add 1 cat for me", tb);
+		assertEquals(TextBuddy.executeCommand("sort everything", tb),
+				"There is no need for \"everything\" after the command \"sort\"\n"
+				+ "It will be performed anyway\n"
+				+ "test.txt is now sorted alphabetically as follows:\n" + "1. 1 cat for me\n"
+				+ "2. Really!\n" + "3. Would you like a cat?\n" + "4. cats are awesome\n");
+		
+		
 		System.out.println("Passed all sort cases!");
 	}
 	
