@@ -139,7 +139,14 @@ public class TextBuddy{
     }
 	
 	private String searchForKeyword(String content){
-		return displayAllContent("");
+		String contents = "";
+		for (int i = 0; i < contentStore.size(); i++) {
+        	String nextLine = i + 1 + ". " + contentStore.get(i) + "\n";
+        	if (contentStore.get(i).contains(content)) {
+        		contents += nextLine;
+        	}
+       	 }
+       	return contents;
 	}
 	
 	// Function to write ArrayList of contents to text file
